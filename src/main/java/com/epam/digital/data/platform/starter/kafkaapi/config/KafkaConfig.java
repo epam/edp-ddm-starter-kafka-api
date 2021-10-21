@@ -2,6 +2,8 @@ package com.epam.digital.data.platform.starter.kafkaapi.config;
 
 import com.epam.digital.data.platform.starter.kafkaapi.config.properties.KafkaProperties;
 import com.epam.digital.data.platform.starter.kafkaapi.config.properties.KafkaProperties.ErrorHandler;
+
+import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import org.apache.kafka.clients.CommonClientConfigs;
@@ -78,6 +80,8 @@ public class KafkaConfig {
     props.put(JsonDeserializer.TRUSTED_PACKAGES,
         String.join(",", kafkaProperties.getTrustedPackages()));
     props.put(ConsumerConfig.GROUP_ID_CONFIG, kafkaProperties.getGroupId());
+    props.put(ConsumerConfig.ALLOW_AUTO_CREATE_TOPICS_CONFIG, false);
+    props.put(ConsumerConfig.RETRY_BACKOFF_MS_CONFIG, Duration.ofSeconds(10).toMillis());
 
     if (kafkaProperties.getSsl().isEnabled()) {
       props.putAll(createSslProperties());
