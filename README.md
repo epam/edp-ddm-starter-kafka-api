@@ -5,7 +5,7 @@ This starter provides basic configuration, required for kafka-api microservices 
 ### Usage
 ###### Configuration
 * `data-platform.kafka` - Kafka configuration (`KafkaProperties` class)
-* `ata-platform.datasource` - DB datasource configuration (`DatabaseProperties` class)
+* `data-platform.datasource` - DB datasource configuration (`DatabaseProperties` class)
 
 ### License
 ddm-starter-kafka-api is Open Source software released under the Apache 2.0 license.
